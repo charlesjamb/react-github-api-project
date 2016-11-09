@@ -11,6 +11,7 @@ const IndexRoute = ReactRouter.IndexRoute;
 const App = require('./components/App');
 const Search = require('./components/Search');
 const User = require('./components/User');
+const Followers = require('./components/Followers')
 
 /*
 Rendering a router will output the right component tree based on the current URL.

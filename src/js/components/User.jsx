@@ -94,6 +94,7 @@ const User = React.createClass({
                         {stats.map(this.renderStat)}              
                     </ul>
                 </div>
+                {this.props.children}
             </div>
         );
     }
