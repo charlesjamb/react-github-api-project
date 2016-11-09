@@ -1,14 +1,16 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactRouter = require('react-router');
+// Libraries
+const React = require('react');
+const ReactDOM = require('react-dom');
+const ReactRouter = require('react-router');
 
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
+// Components
+const Router = ReactRouter.Router;
+const Route = ReactRouter.Route;
+const IndexRoute = ReactRouter.IndexRoute;
 
-var App = require('./components/App');
-var Search = require('./components/Search');
-var User = require('./components/User');
+const App = require('./components/App');
+const Search = require('./components/Search');
+const User = require('./components/User');
 
 /*
 Rendering a router will output the right component tree based on the current URL.
@@ -18,7 +20,7 @@ If the URL is /, then <App/> will be rendered, and this.props.children will be <
 If the URL is /user/ziad-saab then <App/> will be rendered, and this.props.children will be <User/>
 The <User/> instance will be passed a prop called `params`. It will be an object with `{username: 'ziad-saab'}`
 */
-var routes = (
+const routes = (
     <Router history={ReactRouter.browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={Search}/>

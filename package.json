@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Create a GitHub browser using React and the GitHub API",
   "main": "server.js",
-  "keywords": ["react","github"],
+  "keywords": [
+    "react",
+    "github"
+  ],
   "author": "Ziad Saab <ziad.saab@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -20,5 +23,9 @@
     "react-dom": "^15.3.0",
     "react-router": "^2.6.1",
     "webpack": "^1.13.1"
+  },
+  "repository": {
+    "url": "git@github.com:charlesjamb/react-github-api-project.git",
+    "type": "git"
   }
 }

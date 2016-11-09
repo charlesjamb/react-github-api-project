@@ -1,10 +1,10 @@
-var React = require('react');
-// We're using jQuery to make AJAX calls because that's what we're used to for the moment
-// Later on you might want to use a lighter library that only does AJAX, like isomorphic-fetch or superagent
-var $ = require('jquery');
-var Link = require('react-router').Link;
+// Libraries
+const React = require('react');
+const $ = require('jquery');
+const Link = require('react-router').Link;
 
-var User = React.createClass({
+///////////////////////////////////////////////////////////////////////////////
+const User = React.createClass({
     propTypes: {
         // PropTypes.shape is like PropTypes.object but lets you define what's expected to be inside the object
         params: React.PropTypes.shape({
@@ -29,7 +29,7 @@ var User = React.createClass({
     componentDidMount: function() {
         var that = this; // What's this?? Make sure you remember or understand what this line does
         
-        $.getJSON(`https://api.github.com/users/${this.props.params.username}`)
+        $.getJSON(`https://api.github.com/users/${this.props.params.username}?access_token=d275a78344263669e5dab356f89f7f77ef3e3748`)
             .then(
                 function(user) {
                     // Why that.setState instead of this.setState??
