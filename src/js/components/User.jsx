@@ -35,7 +35,7 @@ const User = React.createClass({
                     // Why that.setState instead of this.setState??
                     that.setState({
                         user: user
-                    });
+                    }); 
                 }
             );
     },
