@@ -106,6 +106,10 @@ h1,h2,h3,h4,h5,h6 {
     white-space: nowrap;
 }
 
+
+
+
+
 .follower-profil {
     margin-bottom: 10px;
 }
@@ -125,4 +129,25 @@ h1,h2,h3,h4,h5,h6 {
     border-radius: 50%;
     width: 50px;
     height: 50px;
+}
+
+
+
+
+
+.repo-profil {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+.repo-profil a, .repo-profil p {
+    padding: 5px;
+}
+
+.stars {
+    display: flex;
+    border: 3px solid black;
+    padding: 5px;
 }

@@ -13,6 +13,7 @@ const Search = require('./components/Search');
 const User = require('./components/User');
 const Followers = require('./components/Followers');
 const Following = require('./components/Following');
+const Repo = require('./components/Repo');
 
 /*
 Rendering a router will output the right component tree based on the current URL.
@@ -29,6 +30,7 @@ const routes = (
             <Route path="user/:username" component={User}>																																
             	 <Route path="followers" component={Followers}/>
             	 <Route path="following" component={Following}/>
+            	 <Route path="repos" component={Repo}/>
             </Route>	 
         </Route>
     </Router>

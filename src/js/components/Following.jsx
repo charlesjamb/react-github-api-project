@@ -18,7 +18,7 @@ const Following = React.createClass({
     	return {};
     },
     componentDidMount: function () {
-    	$.getJSON(`https://api.github.com/users/${this.props.params.username}/following?access_token=c697c69926bd301a21a9e2712096957b56143f61`)
+    	$.getJSON(`https://api.github.com/users/${this.props.params.username}/following?access_token=99b8847d2a5eebebc136b33b0866dd9cd56bf6ce`)
     	.then(following => {
     		this.setState({
     			following: following
