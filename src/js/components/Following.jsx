@@ -8,7 +8,7 @@ const $ = require('jquery');
 const GithubUser= require('./GithubUser');
 
 ///////////////////////////////////////////////////////////////////////////////
-const Followers = React.createClass({
+const Following = React.createClass({
 	propTypes: {
         params: React.PropTypes.shape({
             username: React.PropTypes.string.isRequired
@@ -18,27 +18,27 @@ const Followers = React.createClass({
     	return {};
     },
     componentDidMount: function () {
-    	$.getJSON(`https://api.github.com/users/${this.props.params.username}/followers?access_token=c697c69926bd301a21a9e2712096957b56143f61`)
-    	.then(followers => {
+    	$.getJSON(`https://api.github.com/users/${this.props.params.username}/following?access_token=c697c69926bd301a21a9e2712096957b56143f61`)
+    	.then(following => {
     		this.setState({
-    			followers: followers
+    			following: following
     		});
     	});
     },
 	render: function() {
-		if (!this.state.followers) {
-            return <div>LOADING FOLLOWERS...</div>
+		if (!this.state.following) {
+            return <div>LOADING FOLLOWING...</div>
         }
 
         return (
-            <div className="followers-page">
-				<h3>Followers of {this.props.params.username}</h3>
+            <div className="following-page">
+				<h3>Following of {this.props.params.username}</h3>
                 <ul>
-                   {this.state.followers.map(follower => <GithubUser user={follower} key={follower.id}/>)}
+                   {this.state.following.map(following => <GithubUser user={following} key={following.id}/>)}
                 </ul>
 			</div>
 		);
 	}
 })
 
-module.exports = Followers;
+module.exports = Following;
