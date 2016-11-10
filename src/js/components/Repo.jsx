@@ -18,7 +18,7 @@ const Repo = React.createClass({
     	return {};
     },
     componentDidMount: function () {
-    	$.getJSON(`https://api.github.com/users/${this.props.params.username}/repos?access_token=99b8847d2a5eebebc136b33b0866dd9cd56bf6ce`)
+    	$.getJSON(`https://api.github.com/users/${this.props.params.username}/repos`)
     	.then(repos => {
     		console.log(repos)
     		this.setState({

@@ -16,7 +16,7 @@ const User = React.createClass({
         return {user:''};
     },
     _setUser: function() {
-        $.getJSON(`https://api.github.com/users/${this.props.params.username}?access_token=99b8847d2a5eebebc136b33b0866dd9cd56bf6ce`)
+        $.getJSON(`https://api.github.com/users/${this.props.params.username}`)
         .then(user => {
             this.setState({
                 user: user
