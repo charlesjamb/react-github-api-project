@@ -1,7 +1,8 @@
 // Libraries
 const React = require('react');
-const $ = require('jquery');
 const Link = require('react-router').Link;
+
+const $ = require('jquery');
 
 ///////////////////////////////////////////////////////////////////////////////
 const User = React.createClass({
@@ -12,36 +13,24 @@ const User = React.createClass({
         })
     },
     getInitialState: function() {
-        return {};
+        return {user:''};
     },
-    /*
-    This method will be called by React after the first render. It's a perfect place to load
-    data with AJAX. This User component gets mounted in the DOM as soon as the URL is /user/:username
-    
-    When that happens, react-router will pass a `params` prop containing every parameter in the URL, just like
-    when we get URL parameters in Express with req.params. Here, it's this.props.params. Since we called our route
-    parameter `username`, it's available under this.props.params.username
-    
-    We're using it to make an API call to GitHub to fetch the user data for the username in the URL. Once we receive
-    the data -- in the callback -- we call `setState` to put the user data in our state. This will trigger a re-render.
-    When `render` gets called again, `this.state.user` exists and we get the user info display instead of "LOADING..."
-    */
-    componentDidMount: function() {
-        var that = this; // What's this?? Make sure you remember or understand what this line does
-        
+    _setUser: function() {
         $.getJSON(`https://api.github.com/users/${this.props.params.username}?access_token=d275a78344263669e5dab356f89f7f77ef3e3748`)
-            .then(
-                function(user) {
-                    // Why that.setState instead of this.setState??
-                    that.setState({
-                        user: user
-                    }); 
-                }
-            );
+        .then(user => {
+            this.setState({
+                user: user
+            }); 
+        });
     },
-    /*
-    This method is used as a mapping function. Eventually this could be factored out to its own component.
-    */
+    componentDidMount: function() {
+        this._setUser();
+    },
+    componentDidUpdate: function(prevProps, prevState) {
+        if (prevProps.params.username !== this.props.params.username) {
+            this._setUser();
+        }
+    },
     renderStat: function(stat) {
         return (
             <li key={stat.name} className="user-info__stat">
@@ -53,7 +42,6 @@ const User = React.createClass({
         );
     },
     render: function() {
-        // If the state doesn't have a user key, it means the AJAX didn't complete yet. Simply render a LOADING indicator.
         if (!this.state.user) {
             return (<div className="user-page">LOADING...</div>);
         }
